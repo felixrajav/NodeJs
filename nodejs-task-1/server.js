@@ -4,7 +4,7 @@ const path = require("path");
 
 const app = express();
 
-const port =4000;
+const port =5000;
 const Createfolder = './CreateFolder';
 
 if (!fs.existsSync(Createfolder)){
@@ -37,7 +37,7 @@ app.get("/createFile",(req,res)=>{
 })
 
 
-app.get('/getfeils',(req,res)=>{
+app.get('/getfiles',(req,res)=>{
     fs.readdir(Createfolder, (err,files)=>{
         if (err){
             req.status(500).send("Error reading Directory :",err);
