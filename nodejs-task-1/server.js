@@ -1,11 +1,18 @@
 const express = require("express");
 const fs = require("fs");
 const path = require("path");
+const mongoose = require("mongoose");
 
 const app = express();
 
-const port =5000;
+const port =5000;  
+const DB_URL = "mongodb+srv://felixvictorraj:felix123@filesystem.10xly07.mongodb.net/FileSystem?retryWrites=true&w=majority"
 const Createfolder = './CreateFolder';
+
+mongoose
+  .connect(DB_URL, {})
+  .then(() => console.log("Connected to MongoDB"))
+  .catch((err) => console.log("Could not connect to MongoDB", err));
 
 if (!fs.existsSync(Createfolder)){
     fs.mkdirSync(Createfolder);

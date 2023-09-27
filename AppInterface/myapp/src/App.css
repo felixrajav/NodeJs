@@ -1,0 +1,17 @@
+.App{
+  background-color: aliceblue;
+  height: 100%;
+  width: 100%;
+}
+.bgimage{
+  background: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)),url("https://www.bing.com/images/search?view=detailV2&ccid=HxV79tFM&id=E0623EFF39472D651C0D39DB459CACFE9D1EC242&thid=OIP.HxV79tFMPfBAIo0BBF-sOgHaEy&mediaurl=https%3a%2f%2fimages.pexels.com%2fphotos%2f443446%2fpexels-photo-443446.jpeg%3fcs%3dsrgb%26dl%3ddaylight-forest-glossy-443446.jpg%26fm%3djpg&exph=3403&expw=5266&q=background+images&simid=608024862668708008&FORM=IRPRST&ck=44367AF7750ECC06CA3CA579734FABBE&selectedIndex=3");
+  background-size: 100%;
+  width: 100%;
+  height: 100vh;
+}
+
+.contect{
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+}
