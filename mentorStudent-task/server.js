@@ -5,6 +5,7 @@ require("dotenv").config();
 
 const Mentor = require('./models/mentor');
 const Student = require('./models/student')
+app.use(express.json())
 
 const app = express();
 const PORT = process.env.PORT;

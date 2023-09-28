@@ -40,13 +40,6 @@ mongoose.connect(DB_URL, {
 
 // const bookings = [];
 
-app.get('/',(req,res)=>{ 
-    res.json(rooms)  
-})
-
-app.get('/booked',(req,res)=>{
-    res.json(bookings)
-})
 
 /// 1. Create a room
 app.post('/rooms', async (req, res) => {
