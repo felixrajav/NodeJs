@@ -109,8 +109,6 @@ app.post('/bookings', async (req, res) => {
     res.status(500).json({ error: 'Internal server error' });
   }
 });
-
-// 3. List all Rooms with Booked Data
 app.get('/rooms', async (req, res) => {
   try {
     // Find all rooms
@@ -177,3 +175,11 @@ app.get('/bookings/:customerName', async (req, res) => {
     res.status(500).json({ error: 'Internal server error' });
   }
 });
+
+app.listen(PORT,function(error){
+    if(error){
+        console.log("somthing wants wrong:",error)
+    }else{
+        console.log("The Server is listening on port :",PORT)
+    }
+})
