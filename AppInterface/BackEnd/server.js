@@ -5,6 +5,7 @@ const jwt = require('jsonwebtoken');
 const nodemailer = require('nodemailer');
 const crypto = require('crypto');
 const bodyParser = require("body-parser");
+const dotenv = require("dotenv")
 
 const app = express();
 
@@ -14,12 +15,12 @@ const PORT = 8080;
 const DB_URL ="mongodb+srv://felixvictorraj:felix123@cluster0.kbftikb.mongodb.net/?retryWrites=true&w=majority";
 
 app.use((req, res, next) => {
-    res.header('Access-Control-Allow-Origin', 'http://localhost:5175'); // Replace with your actual frontend origin
+    res.header('Access-Control-Allow-Origin', 'http://localhost:5173'); // Replace with your actual frontend origin
     res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
     res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
     next();
   });
-
+ 
 //Connect to MongoDB
 mongoose
   .connect(DB_URL, {
@@ -81,7 +82,7 @@ app.post('/api/signup', async (req, res) => {
   
       const token = jwt.sign(
         { username: user.email, role: 'user' },
-        process.env.SECRET_KEY,
+        process.env.SECRET_KEY, 
         { expiresIn: '1h' }
       );
   

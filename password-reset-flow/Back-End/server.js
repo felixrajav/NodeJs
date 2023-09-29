@@ -43,7 +43,7 @@ mongoose
     auth: {
       user: 'your-email@gmail.com',
       pass: 'your-password',
-    },
+    }, 
   });
 
 app.post("/api/register", async (req, res) => {

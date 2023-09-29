@@ -32,7 +32,7 @@ app.get('/', async (req, res) => {
   }
 });
 
-//  1. API to create Mentor 
+//  1. API to create Mentor  
 
 app.post('/mentor',async(req,res)=>{
     try {
