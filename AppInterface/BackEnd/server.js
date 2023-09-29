@@ -48,6 +48,18 @@ const User = mongoose.model('User', {
     },
   });
 
+  app.get('/', async (req, res) => {
+    try {
+      
+      const user = await User.find();
+      const data = { user };
+      res.json(data);
+    } catch (error) {
+      console.error('Error fetching data:', error);
+      res.status(500).json({ error: 'Internal server error' });
+    }
+  });
+
   // Sign up a new user
 app.post('/api/signup', async (req, res) => {
     const { email, password } = req.body;
