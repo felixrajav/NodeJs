@@ -3,7 +3,7 @@ const bodyparser = require("body-parser");
 const mongoose = require("mongoose");+
 require("dotenv").config();
 
-const Mentor = require('./models/mentor');
+const Mentor = require('./models/mentor'); 
 const Student = require('./models/student')
 
 
@@ -11,7 +11,7 @@ const app = express();
 const PORT = process.env.PORT;
 app.use(express.json())
 
-const DB_URL = "mongodb+srv://felixvictorraj:felix123@cluster0.kbftikb.mongodb.net/?retryWrites=true&w=majority";
+const DB_URL = process.env.DB_URL ; 
 app.use(bodyparser.json())
 
 // connection to mongoDB
@@ -32,7 +32,7 @@ app.get('/', async (req, res) => {
   }
 });
 
-//  1. API to create Mentor
+//  1. API to create Mentor 
 
 app.post('/mentor',async(req,res)=>{
     try {
