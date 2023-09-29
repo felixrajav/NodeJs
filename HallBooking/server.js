@@ -40,6 +40,18 @@ mongoose.connect(DB_URL, {
 
 // const bookings = [];
 
+app.get('/', async (req, res) => {
+  try {
+    const rooms = await Room.find();
+    const bookings = await Booking.find();
+    const data = { rooms, bookings };
+    res.json(data);
+  } catch (error) {
+    console.error('Error fetching data:', error);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
 
 /// 1. Create a room
 app.post('/rooms', async (req, res) => {
