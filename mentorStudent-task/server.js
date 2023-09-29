@@ -5,10 +5,11 @@ require("dotenv").config();
 
 const Mentor = require('./models/mentor');
 const Student = require('./models/student')
-app.use(express.json())
+
 
 const app = express();
 const PORT = process.env.PORT;
+app.use(express.json())
 
 const DB_URL = "mongodb+srv://felixvictorraj:felix123@cluster0.kbftikb.mongodb.net/?retryWrites=true&w=majority";
 app.use(bodyparser.json())
@@ -19,9 +20,17 @@ mongoose.connect(DB_URL, {})
 .then(()=>console.log("connected to mongoDB"))
 .catch((err)=>console.log("server could not be connected",err))
 
-app.get('/', function (req, res) {
-    res.send('Hello World');
- });
+app.get('/', async (req, res) => {
+  try {
+    const mentor = await Mentor.find();
+    const student = await Student.find();
+    const data = { mentor, student };
+    res.json(data);
+  } catch (error) {
+    console.error('Error fetching data:', error);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
 
 //  1. API to create Mentor
 
